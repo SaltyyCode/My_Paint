@@ -33,4 +33,12 @@ int test_paint(Window *app);
 //main.c
 int main(int ac, char **av);
 
+//my_help.c
+void get_help();
+
+//my_write.c
+void my_putchar(char c);
+int my_put_nbr(int nb);
+void my_putstr(const char *str);
+
 #endif /*PAINT*/
