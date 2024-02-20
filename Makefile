@@ -11,7 +11,9 @@ CFLAGS	=	-W -Wall -Wextra
 
 SRC =	src/my_window.c \
      	src/my_event.c \
-		src/main.c
+		src/main.c \
+		src/my_write.c \
+		src/my_help.c
 
 OBJ = $(SRC:.c=.o)
 
