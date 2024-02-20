@@ -28,5 +28,9 @@ int analyse_event(Window *app);
 //my_window.c
 void draw_window(Window *app);
 void del_window(Window *app);
+int test_paint(Window *app);
+
+//main.c
+int main(int ac, char **av);
 
 #endif /*PAINT*/
