@@ -12,4 +12,5 @@ int analyse_event(Window *app)
             break;
         }
     }
+    return 0;
 }

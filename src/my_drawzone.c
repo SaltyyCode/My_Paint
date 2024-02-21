@@ -12,7 +12,7 @@ void init_drawzone(Window *app)
 
 void display_drawzone(Window *app)
 {
-    sfTexture* texture = sfRenderTexture_getTexture(app->drawzone);
+    const sfTexture* texture = sfRenderTexture_getTexture(app->drawzone);
     sfSprite* sprite = sfSprite_create();
     sfSprite_setTexture(sprite, texture, sfTrue);
     sfSprite_setPosition(sprite, (sfVector2f){0, 100});
