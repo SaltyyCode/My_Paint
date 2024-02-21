@@ -7,6 +7,9 @@ int analyse_event(Window *app)
         switch (app->event.type){
             case sfEvtClosed:
                 sfRenderWindow_close(app->window);
+                break;
+            default:
+            break;
         }
     }
 }
