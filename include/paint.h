@@ -47,4 +47,7 @@ void my_putstr(const char *str);
 void init_drawzone(Window *app);
 void display_drawzone(Window *app);
 
+//my_savetopng.c
+void savedrawtopng(sfRenderTexture* RenderTexture, const char* filePath);
+
 #endif /*PAINT*/
