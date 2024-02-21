@@ -24,6 +24,11 @@ typedef struct window {
     sfRenderTexture *drawzone;
 } Window;
 
+typedef struct brush {
+    sfColor color;
+    float radius;
+} Brush;
+
 //my_event.c
 int analyse_event(Window *app);
 
@@ -49,5 +54,9 @@ void display_drawzone(Window *app);
 
 //my_savetopng.c
 void savedrawtopng(sfRenderTexture* RenderTexture, const char* filePath);
+
+//my_brush.c
+void initbrush(Brush *brush, sfColor color, float radius);
+void drawbrush(sfRenderTexture* renderTexture, Brush *brush, sfVector2f pos);
 
 #endif /*PAINT*/
