@@ -13,7 +13,8 @@ SRC =	src/my_window.c \
      	src/my_event.c \
 		src/main.c \
 		src/my_write.c \
-		src/my_help.c
+		src/my_help.c \
+		src/my_drawzone.c
 
 OBJ = $(SRC:.c=.o)
 
