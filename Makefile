@@ -15,7 +15,8 @@ SRC =	src/my_window.c \
 		src/my_write.c \
 		src/my_help.c \
 		src/my_drawzone.c \
-		src/my_savetopng.c
+		src/my_savetopng.c \
+		src/my_brush.c
 
 OBJ = $(SRC:.c=.o)
 
