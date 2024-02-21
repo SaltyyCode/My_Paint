@@ -13,6 +13,7 @@
     #include <unistd.h>
     #include <stdlib.h>
     #include <time.h>
+    #include <stdbool.h>
 
 typedef struct window {
     sfRenderWindow *window;
@@ -20,6 +21,7 @@ typedef struct window {
     sfEvent event;
     sfTexture *bgtexture;
     sfSprite *bgsprite;
+    sfRenderTexture *drawzone;
 } Window;
 
 //my_event.c
@@ -40,5 +42,9 @@ void get_help();
 void my_putchar(char c);
 int my_put_nbr(int nb);
 void my_putstr(const char *str);
+
+//my_drawzone.C
+void init_drawzone(Window *app);
+void display_drawzone(Window *app);
 
 #endif /*PAINT*/
