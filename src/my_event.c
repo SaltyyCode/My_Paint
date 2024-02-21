@@ -8,6 +8,9 @@ int analyse_event(Window *app)
             case sfEvtClosed:
                 sfRenderWindow_close(app->window);
                 break;
+            case sfEvtKeyPressed:
+                if (app->event.key.code == sfKeyP)
+                    savedrawtopng(app->drawzone, "dessin.png");
             default:
             break;
         }
