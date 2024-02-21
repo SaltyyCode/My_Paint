@@ -12,20 +12,25 @@ void draw_window(Window *app)
 
 void display_window(Window *app)
 {
-    sfRenderWindow_clear(app->window, sfWhite);
+    sfRenderWindow_clear(app->window, sfBlack);
 }
 
 void del_window(Window *app)
 {
+    if (app->drawzone != NULL)
+        sfRenderTexture_destroy(app->drawzone);
     sfRenderWindow_destroy(app->window);
 }
 
 int test_paint(Window *app)
 {
     draw_window(app);
+    init_drawzone(app);
     while (sfRenderWindow_isOpen(app->window)){
         analyse_event(app);
         display_window(app);
+        display_drawzone(app);
+        sfRenderWindow_display(app->window);
     }
     del_window(app);
     return EXIT_SUCCESS;
