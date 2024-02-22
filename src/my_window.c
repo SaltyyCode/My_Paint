@@ -32,6 +32,5 @@ void my_resize(Window *app)
 {
     sfView* view = sfView_createFromRect((sfFloatRect){0, 0,
     app->event.size.width, app->event.size.height});
-    
     sfRenderWindow_setView(app->window, view);
 }
