@@ -1,3 +1,10 @@
+/*
+** EPITECH PROJECT, 2024
+** my_write
+** File description:
+** write functions
+*/
+
 #include "../include/paint.h"
 
 void my_putchar(char c)
