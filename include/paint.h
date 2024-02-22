@@ -47,16 +47,20 @@ typedef struct {
     ButtonState state;
 } Button;
 
+extern Button bouton;
+
 //my_event.c
 int analyse_event(Window *app);
 
 //my_window.c
 void draw_window(Window *app);
 void del_window(Window *app);
-int test_paint(Window *app);
+void my_resize(Window *app);
+void display_window(Window *app);
 
 //main.c
 int main(int ac, char **av);
+int test_paint(Window *app);
 
 //my_help.c
 void get_help(void);
@@ -77,5 +81,10 @@ void savedrawtopng(sfRenderTexture *RenderTexture, const char *filePath);
 void initbrush(Brush *brush, sfColor color, float radius);
 void drawbrush(sfRenderTexture* renderTexture, Brush *brush, sfVector2f pos);
 void create_line(Window *app);
+
+//my_button.c
+void updateButtonState(Button *button, sfRenderWindow *window);
+void drawButton(sfRenderWindow *window, Button *button);
+void init_button(Button *Bouton);
 
 #endif /*PAINT*/
