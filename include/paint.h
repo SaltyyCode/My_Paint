@@ -29,6 +29,7 @@ typedef struct window {
     sfTexture *bgtexture;
     sfSprite *bgsprite;
     sfRenderTexture *drawzone;
+    bool isDrawing;
 } Window;
 
 typedef struct brush {
