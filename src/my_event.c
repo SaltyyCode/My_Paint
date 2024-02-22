@@ -30,11 +30,7 @@ int analyse_event(Window *app)
             break;
             case sfEvtMouseMoved:
                 if (isDrawing) {
-                    sfVector2i mousePos = sfMouse_getPositionRenderWindow(app->window);
-                    sfVector2f position = {mousePos.x, mousePos.y - 100};
-                    Brush brush;
-                    initbrush(&brush, sfRed, 5);
-                    drawbrush(app->drawzone, &brush, position);
+                    create_line(app);
                 }
             break;
             case sfEvtResized:
