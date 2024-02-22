@@ -1,6 +1,13 @@
+/*
+** EPITECH PROJECT, 2024
+** my_help
+** File description:
+** function for -h my_paint
+*/
+
 #include "../include/paint.h"
 
-void get_help()
+void get_help(void)
 {
     my_putstr("My_Paint epitech project !\n\n");
     my_putstr("Tools:\n");
