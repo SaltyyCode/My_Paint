@@ -28,16 +28,10 @@ void del_window(Window *app)
     sfRenderWindow_destroy(app->window);
 }
 
-int test_paint(Window *app)
+void my_resize(Window *app)
 {
-    draw_window(app);
-    init_drawzone(app);
-    while (sfRenderWindow_isOpen(app->window)){
-        analyse_event(app);
-        display_window(app);
-        display_drawzone(app);
-        sfRenderWindow_display(app->window);
-    }
-    del_window(app);
-    return EXIT_SUCCESS;
+    sfView* view = sfView_createFromRect((sfFloatRect){0, 0,
+    app->event.size.width, app->event.size.height});
+    
+    sfRenderWindow_setView(app->window, view);
 }
