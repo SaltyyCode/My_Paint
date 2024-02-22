@@ -1,13 +1,19 @@
+/*
+** EPITECH PROJECT, 2024
+** my_window
+** File description:
+** create display and destroy window for my_paint
+*/
+
 #include "../include/paint.h"
 
 void draw_window(Window *app)
 {
-    app->video_mode.width = 1080;
-    app->video_mode.height = 1920;
+    app->video_mode.width = 800;
+    app->video_mode.height = 600;
     app->video_mode.bitsPerPixel = 32;
     app->window = sfRenderWindow_create(app->video_mode,
     "My_Paint", sfResize | sfClose, NULL);
-
 }
 
 void display_window(Window *app)
