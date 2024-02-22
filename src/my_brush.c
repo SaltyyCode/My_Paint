@@ -27,10 +27,17 @@ void drawbrush(sfRenderTexture* renderTexture, Brush *brush, sfVector2f pos)
 
 void create_line(Window *app)
 {
+    
     sfVector2i mousePos = sfMouse_getPositionRenderWindow(app->window);
     sfVector2f position = {mousePos.x, mousePos.y - 100};
     Brush brush;
 
     initbrush(&brush, sfRed, 5);
     drawbrush(app->drawzone, &brush, position);
+}
+
+void create_draw(Window *app)
+{
+    if (app->isDrawing)
+        create_line(app);
 }
