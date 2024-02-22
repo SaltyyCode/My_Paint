@@ -1,3 +1,10 @@
+/*
+** EPITECH PROJECT, 2024
+** paint.h
+** File description:
+** .h file for my_paint
+*/
+
 #ifndef PAINT
     #define PAINT
 
@@ -29,6 +36,17 @@ typedef struct brush {
     float radius;
 } Brush;
 
+typedef enum {
+    BTN_IDLE,
+    BTN_HOVER,
+    BTN_PRESSED
+} ButtonState;
+
+typedef struct {
+    sfRectangleShape* shape;
+    ButtonState state;
+} Button;
+
 //my_event.c
 int analyse_event(Window *app);
 
@@ -41,7 +59,7 @@ int test_paint(Window *app);
 int main(int ac, char **av);
 
 //my_help.c
-void get_help();
+void get_help(void);
 
 //my_write.c
 void my_putchar(char c);
@@ -53,7 +71,7 @@ void init_drawzone(Window *app);
 void display_drawzone(Window *app);
 
 //my_savetopng.c
-void savedrawtopng(sfRenderTexture* RenderTexture, const char* filePath);
+void savedrawtopng(sfRenderTexture *RenderTexture, const char *filePath);
 
 //my_brush.c
 void initbrush(Brush *brush, sfColor color, float radius);
