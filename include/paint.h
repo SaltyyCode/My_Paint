@@ -76,5 +76,6 @@ void savedrawtopng(sfRenderTexture *RenderTexture, const char *filePath);
 //my_brush.c
 void initbrush(Brush *brush, sfColor color, float radius);
 void drawbrush(sfRenderTexture* renderTexture, Brush *brush, sfVector2f pos);
+void create_line(Window *app);
 
 #endif /*PAINT*/
