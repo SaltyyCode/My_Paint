@@ -1,3 +1,10 @@
+/*
+** EPITECH PROJECT, 2024
+** my_pen
+** File description:
+** pen functions for my_paint
+*/
+
 #include "../include/paint.h"
 
 void initbrush(Brush *brush, sfColor color, float radius)
@@ -9,6 +16,7 @@ void initbrush(Brush *brush, sfColor color, float radius)
 void drawbrush(sfRenderTexture* renderTexture, Brush *brush, sfVector2f pos)
 {
     sfCircleShape* shape = sfCircleShape_create();
+
     sfCircleShape_setRadius(shape, brush->radius);
     sfCircleShape_setFillColor(shape, brush->color);
     sfCircleShape_setPosition(shape, pos);
