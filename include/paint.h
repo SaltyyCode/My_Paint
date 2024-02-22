@@ -82,10 +82,16 @@ void savedrawtopng(sfRenderTexture *RenderTexture, const char *filePath);
 void initbrush(Brush *brush, sfColor color, float radius);
 void drawbrush(sfRenderTexture* renderTexture, Brush *brush, sfVector2f pos);
 void create_line(Window *app);
+void create_draw(Window *app);
 
 //my_button.c
-void updatebuttonState(Button *button, sfRenderWindow *window);
+void updatebuttonstate(Button *button, sfRenderWindow *window);
 void drawbutton(sfRenderWindow *window, Button *button);
 void init_button(Button *Bouton);
+
+//my_handlekey.c
+void keyp(Window *app);
+void rightdraw(Window *app);
+void stopdraw(Window *app);
 
 #endif /*PAINT*/
