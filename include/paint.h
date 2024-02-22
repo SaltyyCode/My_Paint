@@ -83,8 +83,8 @@ void drawbrush(sfRenderTexture* renderTexture, Brush *brush, sfVector2f pos);
 void create_line(Window *app);
 
 //my_button.c
-void updateButtonState(Button *button, sfRenderWindow *window);
-void drawButton(sfRenderWindow *window, Button *button);
+void updatebuttonState(Button *button, sfRenderWindow *window);
+void drawbutton(sfRenderWindow *window, Button *button);
 void init_button(Button *Bouton);
 
 #endif /*PAINT*/
