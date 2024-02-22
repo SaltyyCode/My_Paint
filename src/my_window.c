@@ -14,6 +14,7 @@ void draw_window(Window *app)
     app->video_mode.bitsPerPixel = 32;
     app->window = sfRenderWindow_create(app->video_mode,
     "My_Paint", sfResize | sfClose, NULL);
+    app->isDrawing = false;
 }
 
 void display_window(Window *app)
