@@ -34,8 +34,7 @@ int analyse_event(Window *app)
                 }
             break;
             case sfEvtResized:
-                    sfView* view = sfView_createFromRect((sfFloatRect){0, 0, app->event.size.width, app->event.size.height});
-                    sfRenderWindow_setView(app->window, view);
+                my_resize(app);
                     break;
             default:
                 break;
