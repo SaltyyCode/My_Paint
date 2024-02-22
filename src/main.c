@@ -16,7 +16,7 @@ int test_paint(Window *app)
         analyse_event(app);
         display_window(app);
         display_drawzone(app);
-        updatebuttonState(&bouton, app->window);
+        updatebuttonstate(&bouton, app->window);
         drawbutton(app->window, &bouton);
         sfRenderWindow_display(app->window);
     }
