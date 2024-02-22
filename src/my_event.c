@@ -7,8 +7,6 @@
 
 #include "../include/paint.h"
 
-bool isDrawing = false;
-
 int analyse_event(Window *app)
 {
     while (sfRenderWindow_pollEvent(app->window, &app->event)) {
@@ -22,14 +20,14 @@ int analyse_event(Window *app)
             break;
             case sfEvtMouseButtonPressed:
                 if (app->event.mouseButton.button == sfMouseRight)
-                    isDrawing = true;
+                    app->isDrawing = true;
             break;
             case sfEvtMouseButtonReleased:
                 if (app->event.mouseButton.button == sfMouseRight)
-                    isDrawing = false;
+                    app->isDrawing = false;
             break;
             case sfEvtMouseMoved:
-                if (isDrawing) {
+                if (app->isDrawing) {
                     create_line(app);
                 }
             break;
