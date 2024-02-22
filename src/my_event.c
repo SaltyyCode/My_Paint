@@ -15,21 +15,16 @@ int analyse_event(Window *app)
         sfRenderWindow_close(app->window);
             break;
             case sfEvtKeyPressed:
-                if (app->event.key.code == sfKeyP)
-                savedrawtopng(app->drawzone, "dessin.png");
+                keyp(app);
             break;
             case sfEvtMouseButtonPressed:
-                if (app->event.mouseButton.button == sfMouseRight)
-                    app->isDrawing = true;
+                rightdraw(app);
             break;
             case sfEvtMouseButtonReleased:
-                if (app->event.mouseButton.button == sfMouseRight)
-                    app->isDrawing = false;
+                stopdraw(app);
             break;
             case sfEvtMouseMoved:
-                if (app->isDrawing) {
-                    create_line(app);
-                }
+                create_draw(app);
             break;
             case sfEvtResized:
                 my_resize(app);
