@@ -22,6 +22,11 @@
     #include <time.h>
     #include <stdbool.h>
 
+typedef enum {
+    BRUSH,
+    ERASER
+} Tool;
+
 typedef struct window {
     sfRenderWindow *window;
     sfVideoMode video_mode;
@@ -30,6 +35,7 @@ typedef struct window {
     sfSprite *bgsprite;
     sfRenderTexture *drawzone;
     bool isDrawing;
+    Tool current;
 } Window;
 
 typedef struct brush {
@@ -53,6 +59,8 @@ extern Button bouton2;
 
 //my_event.c
 int analyse_event(Window *app);
+void handlemouse(Window *app);
+void handleother(Window *app);
 
 //my_window.c
 void draw_window(Window *app);
