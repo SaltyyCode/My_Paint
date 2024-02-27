@@ -40,3 +40,17 @@ void handleother(Window *app)
             break;
     }
 }
+
+int analyse_event(Window *app)
+{
+    while (sfRenderWindow_pollEvent(app->window, &app->event)) {
+        if (app->event.type == sfEvtMouseButtonPressed ||
+            app->event.type == sfEvtMouseButtonReleased ||
+            app->event.type == sfEvtMouseMoved) {
+            handlemouse(app);
+        } else {
+            handleother(app);
+        }
+    }
+    return 0;
+}
