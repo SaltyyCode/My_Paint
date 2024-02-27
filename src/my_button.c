@@ -1,6 +1,7 @@
 #include "../include/paint.h"
 
 Button bouton;
+Button bouton2;
 
 void updatebuttonstate(Button *button, sfRenderWindow *window)
 {
@@ -38,7 +39,17 @@ void drawbutton(sfRenderWindow *window, Button *button)
 void init_button(Button *Bouton)
 {
     Bouton->shape = sfRectangleShape_create();
-    sfRectangleShape_setSize(Bouton->shape, (sfVector2f){100, 50});
+    sfRectangleShape_setSize(Bouton->shape, (sfVector2f){200, 50});
     sfRectangleShape_setPosition(Bouton->shape, (sfVector2f){50, 50});
+    sfRectangleShape_setFillColor(Bouton->shape, sfColor_fromRGB(255, 0, 0));
     Bouton->state = BTN_IDLE;
+}
+
+void init_button2()
+{
+    bouton2.shape = sfRectangleShape_create();
+    sfRectangleShape_setSize(bouton2.shape, (sfVector2f){200, 50});
+    sfRectangleShape_setPosition(bouton2.shape, (sfVector2f){200,50});
+    sfRectangleShape_setFillColor(bouton2.shape, sfColor_fromRGB(0, 255, 0));
+    bouton2.state = BTN_IDLE;
 }
