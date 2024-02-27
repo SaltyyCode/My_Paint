@@ -7,31 +7,19 @@
 
 #include "../include/paint.h"
 
-int analyse_event(Window *app)
+void handlemouse(Window *app)
 {
-    while (sfRenderWindow_pollEvent(app->window, &app->event)) {
-        switch (app->event.type){
-            case sfEvtClosed:
-        sfRenderWindow_close(app->window);
+    switch (app->event.type){
+        case sfEvtMouseButtonPressed:
+            rightdraw(app);
             break;
-            case sfEvtKeyPressed:
-                keyp(app);
+        case sfEvtMouseButtonReleased:
+            stopdraw(app);
             break;
-            case sfEvtMouseButtonPressed:
-                rightdraw(app);
+        case sfEvtMouseMoved:
+            create_draw(app);
             break;
-            case sfEvtMouseButtonReleased:
-                stopdraw(app);
+        default:
             break;
-            case sfEvtMouseMoved:
-                create_draw(app);
-            break;
-            case sfEvtResized:
-                my_resize(app);
-                    break;
-            default:
-                break;
-        }
     }
-    return 0;
 }
