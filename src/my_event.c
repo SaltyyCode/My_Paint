@@ -23,3 +23,20 @@ void handlemouse(Window *app)
             break;
     }
 }
+
+void handleother(Window *app)
+{
+    switch (app->event.type){
+        case sfEvtClosed:
+            sfRenderWindow_close(app->window);
+            break;
+        case sfEvtKeyPressed:
+            keyp(app);
+            break;
+        case sfEvtResized:
+            my_resize(app);
+            break;
+        default:
+            break;
+    }
+}
