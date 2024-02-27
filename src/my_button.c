@@ -1,3 +1,10 @@
+/*
+** EPITECH PROJECT, 2024
+** my_button.c
+** File description:
+** buttons fonctions
+*/
+
 #include "../include/paint.h"
 
 Button bouton;
