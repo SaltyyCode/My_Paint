@@ -49,6 +49,7 @@ typedef struct {
 } Button;
 
 extern Button bouton;
+extern Button bouton2;
 
 //my_event.c
 int analyse_event(Window *app);
@@ -88,6 +89,7 @@ void create_draw(Window *app);
 void updatebuttonstate(Button *button, sfRenderWindow *window);
 void drawbutton(sfRenderWindow *window, Button *button);
 void init_button(Button *Bouton);
+void init_button2();
 
 //my_handlekey.c
 void keyp(Window *app);
