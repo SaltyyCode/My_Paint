@@ -12,12 +12,15 @@ int test_paint(Window *app)
     draw_window(app);
     init_drawzone(app);
     init_button(&bouton);
+    init_button2();
     while (sfRenderWindow_isOpen(app->window)){
         analyse_event(app);
         display_window(app);
         display_drawzone(app);
         updatebuttonstate(&bouton, app->window);
         drawbutton(app->window, &bouton);
+        updatebuttonstate(&bouton2, app->window);
+        drawbutton(app->window, &bouton2);
         sfRenderWindow_display(app->window);
     }
     del_window(app);
