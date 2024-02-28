@@ -85,7 +85,7 @@ void init_drawzone(Window *app);
 void display_drawzone(Window *app);
 
 //my_savetopng.c
-void savedrawtopng(sfRenderTexture *RenderTexture, const char *filePath);
+void savedrawtoimage(sfRenderTexture *RenderTexture, const char *filePath);
 
 //my_brush.c
 void initbrush(Brush *brush, sfColor color, float radius);
