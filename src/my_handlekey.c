@@ -13,6 +13,8 @@ void keyp(Window *app)
                 savedrawtoimage(app->drawzone, "dessin.png");
     if (app->event.key.code == sfKeyM)
                 savedrawtoimage(app->drawzone, "dessin.jpg");
+    if (app->event.key.code == sfKeyO)
+                savedrawtoimage(app->drawzone, "dessin.bmp");
     if (app->event.key.code == sfKeyB)
                 app->current = BRUSH;
     if (app->event.key.code == sfKeyE)
