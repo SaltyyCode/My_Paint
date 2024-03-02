@@ -54,6 +54,15 @@ typedef struct {
     ButtonState state;
 } Button;
 
+typedef struct colors {
+    sfSprite *color;
+    sfTexture *color_texture;
+    sfIntRect colorect;
+    float x;
+    float y;
+} color_s;
+
+
 extern Button bouton;
 extern Button bouton2;
 
