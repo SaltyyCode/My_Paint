@@ -113,4 +113,9 @@ void keyp(Window *app);
 void rightdraw(Window *app);
 void stopdraw(Window *app);
 
+//my_colors.c
+void init_red(color_s *colors);
+void display_color(color_s *colors, Window *app);
+void init_pink(color_s *colors);
+
 #endif /*PAINT*/
