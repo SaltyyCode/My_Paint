@@ -106,7 +106,7 @@ void create_draw(Window *app);
 void updatebuttonstate(Button *button, sfRenderWindow *window);
 void drawbutton(sfRenderWindow *window, Button *button);
 void init_button(Button *Bouton);
-void init_button2();
+void init_button2(void);
 
 //my_handlekey.c
 void keyp(Window *app);
