@@ -52,11 +52,11 @@ void init_button(Button *Bouton)
     Bouton->state = BTN_IDLE;
 }
 
-void init_button2()
+void init_button2(void)
 {
     bouton2.shape = sfRectangleShape_create();
     sfRectangleShape_setSize(bouton2.shape, (sfVector2f){200, 50});
-    sfRectangleShape_setPosition(bouton2.shape, (sfVector2f){200,50});
+    sfRectangleShape_setPosition(bouton2.shape, (sfVector2f){200, 50});
     sfRectangleShape_setFillColor(bouton2.shape, sfColor_fromRGB(0, 255, 0));
     bouton2.state = BTN_IDLE;
 }
