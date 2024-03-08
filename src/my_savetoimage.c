@@ -7,7 +7,7 @@
 
 #include "../include/paint.h"
 
-void savedrawtopng(sfRenderTexture *RenderTexture, const char *filePath)
+void savedrawtoimage(sfRenderTexture *RenderTexture, const char *filePath)
 {
     const sfTexture* textureDessin;
     sfImage *image;
