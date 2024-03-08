@@ -78,8 +78,35 @@ typedef struct green {
     float y;
 } green_s;
 
+typedef struct white {
+    sfSprite *color;
+    sfTexture *color_texture;
+    sfIntRect colorect;
+    float x;
+    float y;
+} white_s;
+
+typedef struct blue {
+    sfSprite *color;
+    sfTexture *color_texture;
+    sfIntRect colorect;
+    float x;
+    float y;
+} blue_s;
+
+typedef struct black {
+    sfSprite *color;
+    sfTexture *color_texture;
+    sfIntRect colorect;
+    float x;
+    float y;
+} black_s;
+
 typedef struct colors {
     green_s green;
+    black_s black;
+    blue_s blue;
+    white_s white;
     pink_s pink;
     yellow_s yellow;
     sfSprite *color;
@@ -150,5 +177,11 @@ void init_green(color_s *colors);
 
 //my_initcolors.c
 void init_colors(color_s *colors);
+
+//my_othercolors.c
+void init_blue(color_s *colors);
+void init_black(color_s *colors);
+void init_white(color_s *colors);
+
 
 #endif /*PAINT*/
