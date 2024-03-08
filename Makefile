@@ -18,7 +18,9 @@ SRC =	src/my_window.c \
 		src/my_savetoimage.c \
 		src/my_brush.c \
 		src/my_button.c \
-		src/my_handlekey.c
+		src/my_handlekey.c \
+		src/my_colors.c \
+		src/my_initcolors.c
 
 OBJ = $(SRC:.c=.o)
 
