@@ -26,6 +26,9 @@ void display_color(color_s* colors, Window *app)
     sfRenderWindow_drawSprite(app->window, colors->pink.color, NULL);
     sfRenderWindow_drawSprite(app->window, colors->yellow.color, NULL);
     sfRenderWindow_drawSprite(app->window, colors->green.color, NULL);
+    sfRenderWindow_drawSprite(app->window, colors->blue.color, NULL);
+    sfRenderWindow_drawSprite(app->window, colors->white.color, NULL);
+    sfRenderWindow_drawSprite(app->window, colors->black.color, NULL);
 }
 
 void init_pink(color_s *colors)
