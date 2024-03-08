@@ -13,7 +13,7 @@ int test_paint(Window *app, color_s *colors)
     init_drawzone(app);
     init_button(&bouton);
     init_button2();
-    init_red(colors);
+    init_colors(colors);
     while (sfRenderWindow_isOpen(app->window)){
         analyse_event(app);
         display_window(app);
@@ -33,6 +33,9 @@ int main(int ac, char **av)
 {
     Window *app = malloc(sizeof(Window));
     color_s *colors = malloc(sizeof(color_s));
+    pink_s *pink = malloc(sizeof(pink_s));
+    yellow_s *yellow = malloc(sizeof(yellow_s));
+    green_s *green = malloc(sizeof(green_s));
 
     if (ac == 2 && av[1][0] == '-' && av[1][1] == 'h'){
         get_help();
@@ -41,5 +44,8 @@ int main(int ac, char **av)
     test_paint(app, colors);
     free(app);
     free(colors);
+    free(pink);
+    free(yellow);
+    free(green);
     return 0;
 }
