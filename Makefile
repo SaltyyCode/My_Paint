@@ -20,7 +20,8 @@ SRC =	src/my_window.c \
 		src/my_button.c \
 		src/my_handlekey.c \
 		src/my_colors.c \
-		src/my_initcolors.c
+		src/my_initcolors.c \
+		src/my_othercolors.c
 
 OBJ = $(SRC:.c=.o)
 
