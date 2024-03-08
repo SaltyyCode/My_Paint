@@ -50,11 +50,38 @@ typedef enum {
 } ButtonState;
 
 typedef struct {
-    sfRectangleShape* shape;
+    sfRectangleShape *shape;
     ButtonState state;
 } Button;
 
+typedef struct pink {
+    sfSprite *color;
+    sfTexture *color_texture;
+    sfIntRect colorect;
+    float x;
+    float y;
+} pink_s;
+
+typedef struct yellow {
+    sfSprite *color;
+    sfTexture *color_texture;
+    sfIntRect colorect;
+    float x;
+    float y;
+} yellow_s;
+
+typedef struct green {
+    sfSprite *color;
+    sfTexture *color_texture;
+    sfIntRect colorect;
+    float x;
+    float y;
+} green_s;
+
 typedef struct colors {
+    green_s green;
+    pink_s pink;
+    yellow_s yellow;
     sfSprite *color;
     sfTexture *color_texture;
     sfIntRect colorect;
@@ -71,6 +98,7 @@ int analyse_event(Window *app);
 void handlemouse(Window *app);
 void handleother(Window *app);
 
+
 //my_window.c
 void draw_window(Window *app);
 void del_window(Window *app);
@@ -79,7 +107,7 @@ void display_window(Window *app);
 
 //main.c
 int main(int ac, char **av);
-int test_paint(Window *app);
+int test_paint(Window *app, color_s *colors);
 
 //my_help.c
 void get_help(void);
@@ -116,5 +144,11 @@ void stopdraw(Window *app);
 //my_colors.c
 void init_red(color_s *colors);
 void display_color(color_s *colors, Window *app);
+void init_pink(color_s *colors);
+void init_yellow(color_s *colors);
+void init_green(color_s *colors);
+
+//my_initcolors.c
+void init_colors(color_s *colors);
 
 #endif /*PAINT*/
