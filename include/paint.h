@@ -21,27 +21,12 @@
     #include <stdlib.h>
     #include <time.h>
     #include <stdbool.h>
+    #include <math.h>
 
 typedef enum {
     BRUSH,
     ERASER
 } Tool;
-
-typedef struct window {
-    sfRenderWindow *window;
-    sfVideoMode video_mode;
-    sfEvent event;
-    sfTexture *bgtexture;
-    sfSprite *bgsprite;
-    sfRenderTexture *drawzone;
-    bool isDrawing;
-    Tool current;
-} Window;
-
-typedef struct brush {
-    sfColor color;
-    float radius;
-} Brush;
 
 typedef enum {
     BTN_IDLE,
@@ -52,77 +37,60 @@ typedef enum {
 typedef struct {
     sfRectangleShape *shape;
     ButtonState state;
+    sfText* label;
+    bool isVisible;
+    bool wasPressed;
 } Button;
 
-typedef struct pink {
-    sfSprite *color;
-    sfTexture *color_texture;
-    sfIntRect colorect;
-    float x;
-    float y;
-} pink_s;
+typedef struct window {
+    sfRenderWindow *window;
+    sfVideoMode video_mode;
+    sfEvent event;
+    sfTexture *bgtexture;
+    sfSprite *bgsprite;
+    sfRenderTexture *drawzone;
+    bool isDrawing;
+    bool displayRoue;
+    Tool current;
+    sfSprite *palette;
+    sfSprite *roue;
+    sfSprite *SHelp;
+    sfTexture *THelp;
+    sfImage *image;
+    sfTexture *Tpalette;
+    sfTexture *Troue;
+    sfColor selectedColor;
+    Button boutonSaveAs;
+    Button boutonPNG;
+    Button boutonJPG;
+    Button boutonBMP;
+    bool dropdownVisible;
+    sfSprite *image1;
+    sfSprite *image2;
+    bool showImages;
+} Window;
 
-typedef struct yellow {
-    sfSprite *color;
-    sfTexture *color_texture;
-    sfIntRect colorect;
-    float x;
-    float y;
-} yellow_s;
+typedef struct help {
+    sfText *text;
+    sfFont *font;
+} Help;
 
-typedef struct green {
-    sfSprite *color;
-    sfTexture *color_texture;
-    sfIntRect colorect;
-    float x;
-    float y;
-} green_s;
-
-typedef struct white {
-    sfSprite *color;
-    sfTexture *color_texture;
-    sfIntRect colorect;
-    float x;
-    float y;
-} white_s;
-
-typedef struct blue {
-    sfSprite *color;
-    sfTexture *color_texture;
-    sfIntRect colorect;
-    float x;
-    float y;
-} blue_s;
-
-typedef struct black {
-    sfSprite *color;
-    sfTexture *color_texture;
-    sfIntRect colorect;
-    float x;
-    float y;
-} black_s;
-
-typedef struct colors {
-    green_s green;
-    black_s black;
-    blue_s blue;
-    white_s white;
-    pink_s pink;
-    yellow_s yellow;
-    sfSprite *color;
-    sfTexture *color_texture;
-    sfIntRect colorect;
-    float x;
-    float y;
-} color_s;
+typedef struct font {
+    Help help;
+    sfText *text;
+    sfFont *font;
+} Font;
 
 
-extern Button bouton;
-extern Button bouton2;
+typedef struct brush {
+    sfColor color;
+    float radius;
+    sfVector2f lastPosition;
+} Brush;
 
 //my_event.c
-int analyse_event(Window *app);
-void handlemouse(Window *app);
+void analyse_event(Window *app, Brush *brush);
+void handlemouse(Window *app, Brush *brush);
 void handleother(Window *app);
 
 
@@ -131,57 +99,76 @@ void draw_window(Window *app);
 void del_window(Window *app);
 void my_resize(Window *app);
 void display_window(Window *app);
+void delete_all(Window *app);
 
 //main.c
 int main(int ac, char **av);
-int test_paint(Window *app, color_s *colors);
+int test_paint(Window *app, Brush *brush, Font *font, Button *button);
+void exec_paint(Window *app, Brush *brush, Font *font);
+void exec_button(Window *app, Font *font);
 
 //my_help.c
 void get_help(void);
 
 //my_write.c
 void my_putchar(char c);
-int my_put_nbr(int nb);
+int my_strlen(const char *str);
 void my_putstr(const char *str);
+char *my_strcat(char *dest, const char *src);
+char *my_strcpy(char *dest, char const *src);
 
 //my_drawzone.C
 void init_drawzone(Window *app);
 void display_drawzone(Window *app);
 
 //my_savetopng.c
-void savedrawtoimage(sfRenderTexture *RenderTexture, const char *filePath);
+int savedrawtoimage(sfRenderTexture *RenderTexture, const char *filePath);
+void handlejpgclick(Window *app);
+void handlebmpclick(Window *app);
 
 //my_brush.c
-void initbrush(Brush *brush, sfColor color, float radius);
-void drawbrush(sfRenderTexture* renderTexture, Brush *brush, sfVector2f pos);
-void create_line(Window *app);
-void create_draw(Window *app);
+void init_brush(Brush *brush, sfColor color, float radius);
+void draw_brush(sfRenderTexture* renderTexture, Brush *brush, sfVector2f pos);
+void create_line(Window *app, Brush *brush);
+void create_draw(Window *app, Brush *brush);
+void handle_palett(Window* app, Brush *brush);
 
 //my_button.c
-void updatebuttonstate(Button *button, sfRenderWindow *window);
-void drawbutton(sfRenderWindow *window, Button *button);
-void init_button(Button *Bouton);
-void init_button2(void);
+void updatebuttonstate(Button *button, Window *app, Font *font);
+void drawbutton(Window *app, Button *button);
+void initbutton(Button *button, sfVector2f position, sfVector2f size);
+void handle_buttons(Window *app, Font *font);
+void setup_buttons(Window *app, sfFont *font);
+
+//handle_actions.c
+void handle_buttons(Window *app, Font *font);
+void handlebuttonhover(Button *button, sfVector2i mousePos);
+void handleclickaction(Button *button, Window *app, Font *font);
+void initbuttontext(Button *button, const char *text, sfFont *font);
+void destroybutton(Button *button);
+
+//draw_button.c
+void drawbuttontext(Window *app, Button *button);
+void drawbuttonshape(Window *app, Button *button);
+void handle_primhelp(Window *app, Brush *brush, Font *font);
+
+//my_about.c
+void my_about(void);
+void my_help(void);
 
 //my_handlekey.c
 void keyp(Window *app);
 void rightdraw(Window *app);
 void stopdraw(Window *app);
 
-//my_colors.c
-void init_red(color_s *colors);
-void display_color(color_s *colors, Window *app);
-void init_pink(color_s *colors);
-void init_yellow(color_s *colors);
-void init_green(color_s *colors);
+//init_images.c
+void initimages(Window *app);
 
-//my_initcolors.c
-void init_colors(color_s *colors);
-
-//my_othercolors.c
-void init_blue(color_s *colors);
-void init_black(color_s *colors);
-void init_white(color_s *colors);
-
+//init_tools.c
+int init_tools(Window *app);
+void display_elements(Window *app);
+int opennewwindow(const char *message, Font *font);
+void init(Font *font, Brush *brush, Window *app);
+int init_tools2(Window *app);
 
 #endif /*PAINT*/
