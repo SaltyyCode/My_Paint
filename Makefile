@@ -9,19 +9,21 @@ NAME	=	my_paint
 
 CFLAGS	=	-W -Wall -Wextra
 
-SRC =	src/my_window.c \
-     	src/my_event.c \
+SRC =	src/init/my_window.c \
+     	src/handle_events/my_event.c \
 		src/main.c \
 		src/my_write.c \
 		src/my_help.c \
-		src/my_drawzone.c \
-		src/my_savetoimage.c \
-		src/my_brush.c \
-		src/my_button.c \
-		src/my_handlekey.c \
-		src/my_colors.c \
-		src/my_initcolors.c \
-		src/my_othercolors.c
+		src/drawzone/my_drawzone.c \
+		src/save_image/my_savetoimage.c \
+		src/drawzone/my_brush.c \
+		src/button/my_button.c \
+		src/button/my_about.c \
+		src/handle_events/my_handlekey.c \
+		src/init/init_tools.c \
+		src/button/handle_actions.c \
+		src/button/draw_button.c \
+		src/init/init_images.c
 
 OBJ = $(SRC:.c=.o)
 
